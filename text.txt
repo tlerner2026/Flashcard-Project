@@ -1,0 +1,6 @@
+TAL
+ Correct: {"Kansas": "Topeka", "South Carolina": "Columbia", "Virginia": "Richmond", "Alabama": "Montgomery", "Pennsylvania": "Harrisburg", "Idaho": "Boise", "Indiana": "Indianapolis", "Arkansas": "Little Rock", "New Hampshire": "Concord", "Maryland": "Annapolis", "Texas": "Austin"}
+ Wrong: {"Maine": "Augusta", "Michigan": "Lansing", "Tennessee": "Nashville", "Oregon": "Salem", "Missouri": "Jefferson City", "Wyoming": "Cheyenne", "South Dakota": "Pierre", "Delaware": "Dover", "Colorado": "Denver", "Iowa": "Des Moines", "Georgia": "Atlanta", "Kentucky": "Frankfort", "North Carolina": "Raleigh", "Ohio": "Columbus"}
+TAL
+ Correct: {"Kansas": "Topeka", "South Carolina": "Columbia", "Virginia": "Richmond", "Alabama": "Montgomery", "Pennsylvania": "Harrisburg", "Idaho": "Boise", "Indiana": "Indianapolis", "Arkansas": "Little Rock", "New Hampshire": "Concord", "Maryland": "Annapolis", "Texas": "Austin", "Nebraska": "Lincoln", "Utah": "Salt Lake City"}
+ Wrong: {"Maine": "Augusta", "Michigan": "Lansing", "Tennessee": "Nashville", "Oregon": "Salem", "Missouri": "Jefferson City", "Wyoming": "Cheyenne", "South Dakota": "Pierre", "Delaware": "Dover", "Colorado": "Denver", "Iowa": "Des Moines", "Georgia": "Atlanta", "Kentucky": "Frankfort", "North Carolina": "Raleigh", "Ohio": "Columbus"}
