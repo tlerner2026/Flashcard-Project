@@ -54,6 +54,7 @@ questions = {
     'Wyoming': 'Cheyenne'  
 }
 
+#Use user to find previous data about them.
 correct_dict = {}
 wrong_dict = {}
 
@@ -76,8 +77,7 @@ if previous_info.find(user) != -1:
             wrong_index = previous_info.find('Wrong: ',user_index)+7
             wrong_index_end = previous_info.find("}",wrong_index)+1
             wrong_dict = json.loads(previous_info[wrong_index:wrong_index_end])
-
-
+            #Add code to get delete of a prevoius user, so it can be overwritten.
 f.close()
 
 while len(questions) != 0: 
@@ -107,7 +107,7 @@ while len(questions) != 0:
         print("All correct, now exiting")
         break
 
-    answer = input(f"Would you like to continue with the ones you got wrong, you scored {50 - len(questions)} out of 50. Type 'y' to continue, type 'n' to exit: ")
+    answer = input(f"Would you like to continue with the ones you got wrong, you scored {50 - len(wrong_dict)} out of 50. Type 'y' to continue, type 'n' to exit: ")
     
     if answer == 'n':
         print("Now exiting")
@@ -116,5 +116,3 @@ while len(questions) != 0:
     else:
         questions = wrong_dict.copy()
         wrong_dict.clear()
-    
-    
