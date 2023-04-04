@@ -1,3 +1,3 @@
-t
- Correct: {}
- Wrong: {"Oregon": "Salem"}
+tal
+ Correct: {"Virginia": "Richmond", "Kansas": "Topeka", "Wisconsin": "Madison", "Texas": "Austin", "Kentucky": "Frankfort", "Montana": "Helena", "Arkansas": "Little Rock", "North Dakota": "Bismarck", "Hawaii": "Honolulu", "Wyoming": "Cheyenne", "Georgia": "Atlanta", "Ohio": "Columbus", "Maine": "Augusta", "Arizona": "Phoenix", "Washington": "Olympia"}
+ Wrong: {"Florida": "Tallahassee", "Oregon": "Salem", "Alaska": "Juneau"}

@@ -77,6 +77,7 @@ if previous_info.find(user) != -1:
             wrong_index = previous_info.find('Wrong: ',user_index)+7
             wrong_index_end = previous_info.find("}",wrong_index)+1
             wrong_dict = json.loads(previous_info[wrong_index:wrong_index_end])
+            questions = wrong_dict
             #Add code to get delete of a prevoius user, so it can be overwritten.
 f.close()
 
@@ -93,10 +94,12 @@ while len(questions) != 0:
 
         if answer == capital:
             correct_dict[state] = capital
-            print("Correct")
+            print("""Correct
+----------------""")
         
         else:
-            print(f"Wrong, the correct answer is: {capital}")
+            print(f"""Wrong, the correct answer is: {capital}
+----------------""")
             wrong_dict[state] = capital
         
         f = open("text.txt","w")
@@ -107,7 +110,7 @@ while len(questions) != 0:
         print("All correct, now exiting")
         break
 
-    answer = input(f"Would you like to continue with the ones you got wrong, you scored {50 - len(wrong_dict)} out of 50. Type 'y' to continue, type 'n' to exit: ")
+    answer = input(f"Would you like to continue and learn more, so far you learned {50 - len(wrong_dict)} out of 50. Type 'y' to continue, type 'n' to exit: ")
     
     if answer == 'n':
         print("Now exiting")
