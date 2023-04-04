@@ -97,7 +97,10 @@ while len(wrong_dict) != 0:
     if len(wrong_dict) == 0:
         break
 
-    answer = input(f"Would you like to continue and learn more, so far you learned {50 - len(wrong_dict)} out of 50. Type 'y' to continue, type 'n' to exit: ")
+    stats = input("Do you want to see your stats? Type 'yes' or anything else: ")
+    if stats == 'yes':
+        print(f"You have {50-len(wrong_dict)} correct and {len(wrong_dict)} wrong.")
+    answer = input(f"Would you like to continue and learn more. Type 'y' to continue, type 'n' to exit: ")
     
     if answer == 'n':
         print("Now exiting")
