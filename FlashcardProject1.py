@@ -54,34 +54,21 @@ questions = {
     'Wyoming': 'Cheyenne'  
 }
 
-#Use user to find previous data about them.
-correct_dict = {}
 wrong_dict = {}
 
-user = input("What is your name, so that you keep your progress for the future: ")
+#Check if it is the user first time playing
+user = input("Is this your first time? Type 'yes' or 'no': ")
+if user == 'no':
 
-with open("text.txt", "r") as f:
-    lines = f.readlines()
+    with open("text.json", "r") as f:
+        data = json.load(f)
+        questions = data
+    f.close()
 
-previous_info = "".join(lines)
+wrong_dict = questions
 
-if previous_info.find(user) != -1:
-    print("User is somewhere in the file")
-    for line in lines:
-        if line.find(user) != -1:
-            user_index = previous_info.find(user)
-            print("Found user!")   
-            correct_index = previous_info.find('Correct: ',user_index)+9
-            correct_index_end = previous_info.find("}",correct_index)+1
-            correct_dict = json.loads(previous_info[correct_index:correct_index_end])
-            wrong_index = previous_info.find('Wrong: ',user_index)+7
-            wrong_index_end = previous_info.find("}",wrong_index)+1
-            wrong_dict = json.loads(previous_info[wrong_index:wrong_index_end])
-            questions = wrong_dict
-            #Add code to get delete of a prevoius user, so it can be overwritten.
-f.close()
-
-while len(questions) != 0: 
+#Start while loop for questions
+while len(wrong_dict) != 0: 
 
     #Shuffle the questions
     shuffled = list(questions.items())
@@ -92,22 +79,22 @@ while len(questions) != 0:
 
         answer = input(f"What is the capital of {state}: ")
 
+        #check if correct
         if answer == capital:
-            correct_dict[state] = capital
+            del wrong_dict[state]
             print("""Correct
 ----------------""")
         
         else:
             print(f"""Wrong, the correct answer is: {capital}
 ----------------""")
-            wrong_dict[state] = capital
         
-        f = open("text.txt","w")
-        f.write(f"{previous_info}\n{user}\n Correct: {json.dumps(correct_dict)}\n Wrong: {json.dumps(wrong_dict)}")
+        #store data
+        f = open("text.json","w")
+        f.write(f"{json.dumps(wrong_dict)}")
         f.close()
 
-    if len(questions) == 0:
-        print("All correct, now exiting")
+    if len(wrong_dict) == 0:
         break
 
     answer = input(f"Would you like to continue and learn more, so far you learned {50 - len(wrong_dict)} out of 50. Type 'y' to continue, type 'n' to exit: ")
@@ -118,4 +105,5 @@ while len(questions) != 0:
 
     else:
         questions = wrong_dict.copy()
-        wrong_dict.clear()
+
+print("All correct, now exiting")
