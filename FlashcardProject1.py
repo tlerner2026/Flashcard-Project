@@ -56,11 +56,11 @@ questions = {
 
 wrong_dict = {}
 
-#Check if it is the user first time playing
-user = input("Is this your first time? Type 'yes' or 'no': ")
-if user == 'no':
-
-    with open("text.json", "r") as f:
+#Check if it is the user first time playing and ask for name to make an individual file for them.
+user = input("What is your name: ")
+played = input("Is this your first time? Or if you want to reset your data type 'yes'. Type 'yes' or 'no' : ")
+if played == 'no':
+    with open(f"{user}.json", "r") as f:
         data = json.load(f)
         questions = data
     f.close()
@@ -90,7 +90,7 @@ while len(wrong_dict) != 0:
 ----------------""")
         
         #store data
-        f = open("text.json","w")
+        f = open(f"{user}.json","w")
         f.write(f"{json.dumps(wrong_dict)}")
         f.close()
 
